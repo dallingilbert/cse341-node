@@ -20,18 +20,9 @@ router.post('/addUser', (req, res, next) => {
 
 router.post('/removeUser', (req, res, next) => {
   const oldUser = req.body.remove;
-
-  let isSameUser = (user) => {
-    if (user === oldUser){
-      return true;
-    }
-    else {
-      return false;
-    }
-  };
   
   // get user index
-  let index = userNames.findIndex(isSameUser);
+  let index = userNames.indexOf(oldUser);
 
   // check if user is in our array
   if (index !== -1) {
