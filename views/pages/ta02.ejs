@@ -15,10 +15,44 @@
         <p>This is the placeholder for Team Activity 02</p>
       </div>
     </div>
-    <div class="container">
 
-    </div>
+    <main>
+      <div class="container">
+        <h2>List of Users</h2>
+        <form action="/ta02/addUser" method="POST">
+          <label for="username">Username</label>
+          <input type="text" name="username">
+          <button type="submit">Add User</button>
+        </form>
 
+        <div id="addErr">
+          <% if (isAddable) { %>
+            <p>Cannot add the same name twice!</p>
+          <% } %>
+        </div>
+
+        <div class="remove">
+          <form action="/ta02/removeUser" method="POST">
+            <label for="remove">Remove User</label>
+            <input type="text" name="remove">
+            <button type="submit">Remove User</button>
+          </form>
+        </div>
+
+        <div id="removeErr">
+          <% if (oldUser) { %>
+          <p>Cannot remove an unexisting user!</p>
+          <% } %>
+        </div>
+  
+        <div class="container">
+          <% for (name of user) { %>
+            <li><%= name %></li>
+          <% } %>
+        </div>
+      </div>
+    </main>
+    
 
 </body>
 
