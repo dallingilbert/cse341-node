@@ -1,0 +1,25 @@
+<% var rootPath = '../../../' %>
+<%- include(rootPath + 'includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include(rootPath + 'includes/proveNavigation.ejs') %>
+    <main>
+        <form class="product-form" action="/prove02/add-product" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl">
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" step="0.1">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description">
+            </div>
+
+            <button class="btn" type="submit">Add Product</button>
+        </form>
+    </main>
+    <%- include(rootPath + 'includes/end.ejs') %>
