@@ -8,17 +8,19 @@ let users = ["Dallin", "Joe", "Jimmy", "John"];
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-  const url = req.url;
+  let url = req.url;
+  console.log(url);
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
   res.write("<head><title>Enter Message</title><head>");
   res.write("<body><p>Welcome to my page!</p>");
   res.write(
-    '<form action="/prove01/create-user" method="POST"><input type="text" name="username"><button type="submit">Create User</button></form>'
+    '<form action="/proveAssignments/01/create-user" method="POST"><input type="text" name="username"><button type="submit">Create User</button></form>'
   );
   res.write("</body>");
   res.write("</html>");
-  if (url === "/prove01/users") {
+  
+  if (url === "/proveAssignments/01/users") {
     res.setHeader("Content-Type", "text/html");
     res.write("<html>");
     res.write("<head><title>Assignment 1</title><head>");
@@ -31,8 +33,11 @@ router.get("/", (req, res, next) => {
     res.write("</ul>");
     res.write("</body>");
     res.write("</html>");
+    console.log(url);
+    return res.end();
   }
-  if (url === "/prove01/create-user") {
+  console.log(url);
+  if (url === "/proveAssignments/01/create-user") {
     const body = [];
     console.log("here!");
     req.on("data", (chunk) => {
@@ -48,9 +53,10 @@ router.get("/", (req, res, next) => {
       res.end();
     });
   }
+  return res.end();
 });
 
-router.get("prove01/users", (req, res, next) => {
+router.get("/proveAssignements/01/users", (req, res, next) => {
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
   res.write("<head><title>Assignment 1</title><head>");

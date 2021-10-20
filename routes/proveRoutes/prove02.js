@@ -4,8 +4,8 @@ const router = express.Router();
 const products = [];
 
 router.get("/", (req, res, next) => {
-    res.render('pages/proveAssign/wk02/prove02', {
-        path: '/prove02',
+    res.render('pages/proveAssignments', {
+        path: '/02',
         pageTitle: 'Shop',
         prods: products,
         hasProds: products.length > 0
@@ -19,12 +19,12 @@ router.post('/add-product', (req, res, next) => {
         price: req.body.price,
         description: req.body.description
     });
-    res.redirect('/prove02');
+    res.redirect('/proveAssignments/02');
 });
 
 router.get("/add-product", (req, res, next) => {
-    res.render('pages/proveAssign/wk02/add-product', {
-        path: '/prove02/add-product',
+    res.render('pages/proveAssignments/prove02/add-product', {
+        path: '/add-product',
         pageTitle: 'Add Product',
     });
 });

@@ -15,7 +15,7 @@ router.post('/addUser', (req, res, next) => {
   if (!canAdd)
     userNames.push(newUser);
     
-  res.redirect('/ta02');
+  res.redirect('/teamActivities/02');
 });
 
 router.post('/removeUser', (req, res, next) => {
@@ -34,13 +34,13 @@ router.post('/removeUser', (req, res, next) => {
 
   console.log(index);
 
-  res.redirect('/ta02');
+  res.redirect('/teamActivities/02');
 });
 
 router.get('/', (req, res, next) => {
-  res.render('pages/ta02', {
+  res.render('pages/teamActivities/ta02', {
     title: 'Team Activity 02',
-    path: '/ta02', // For pug, EJS
+    path: '/02', // For pug, EJS
     activeTA03: true, // For HBS
     contentCSS: true, // For HBS
     user: userNames,

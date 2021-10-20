@@ -1,13 +1,12 @@
-<% var rootPath = '../../../' %>
-<%- include(rootPath + 'includes/head.ejs') %>
+<%- include('includes/nav.ejs') %>
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
-    <%- include(rootPath + 'includes/proveNavigation.ejs') %>
+    <%- include('includes/head.ejs') %>
     <main>
-        <form class="product-form" action="/prove02/add-product" method="POST">
+        <form class="product-form" action="/proveAssignments/03/add-product" method="POST">
             <div class="form-control">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title">
@@ -22,4 +21,4 @@
             <button class="btn" type="submit">Add Product</button>
         </form>
     </main>
-    <%- include(rootPath + 'includes/end.ejs') %>
+    <%- include('includes/end.ejs') %>
