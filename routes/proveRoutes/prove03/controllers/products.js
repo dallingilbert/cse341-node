@@ -1,14 +1,6 @@
-const products = [];
+const Product = require('../models/product');
 
-exports.getProducts = (req, res, next) => {
-    console.log('retrieving products');
-    res.render('pages/proveAssignments/prove03', {
-        path: '/proveAssignments',
-        pageTitle: 'Shop',
-        prods: products,
-        hasProds: products.length > 0
-    });
-}
+let productCount = 0;
 
 exports.getAddProduct = (req, res, next) => {
     console.log('adding a product!');
@@ -19,14 +11,22 @@ exports.getAddProduct = (req, res, next) => {
 }
 
 exports.postAddProduct = (req, res, next) => {
+    const product = new Product(req.body.title);
+    product.save();
+    productCount++;
     console.log('adding a product!(post)');
-    products.push({
-        title: req.body.title,
-        imageUrl: req.body.imageUrl,
-        price: req.body.price,
-        description: req.body.description
-    });
-    res.redirect('/proveAssignments/03');
+    res.redirect('/proveAssignments/03/');
 }
 
-exports.products = products;
+exports.getProducts = (req, res, next) => {
+    const products = Product.fetchAll();
+    console.log('retrieving products');
+    res.render('pages/proveAssignments/prove03/prove03', {
+        path: '/prove03',
+        pageTitle: 'Shop',
+        prods: products,
+        hasProds: products.length > 0
+    });
+}
+
+exports.productCount = productCount;
