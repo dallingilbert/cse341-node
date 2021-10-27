@@ -1,10 +1,10 @@
-<% var rootPath = '../../../' %>
-<%- include(rootPath + 'includes/head.ejs') %>
+
+<%- include('includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
     </head>
 
     <body>
-        <%- include(rootPath + 'includes/proveNavigation.ejs') %>
+        <%- include('includes/nav.ejs') %>
         
 
             <main>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="card__actions">
                                     <a href="/products/<%= product._id %>" class="btn">Details</a>
-                                    <%- include(rootPath + 'includes/add-to-cart.ejs', {product: product}) %>
+                                    <%- include('includes/add-to-cart.ejs', {product: product}) %>
                                 </div>
                             </article>
                             <% } %>
@@ -39,4 +39,4 @@
                         <h1>No Products Found!</h1>
                         <% } %>
             </main>
-            <%- include(rootPath + 'includes/end.ejs') %>
+            <%- include('includes/end.ejs') %>

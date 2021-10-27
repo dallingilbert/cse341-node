@@ -16,9 +16,9 @@ router.get('/', (req, res, next) => {
   res.write('<h1>Welcome to my world!</h1>');
   // navigation to your activities endpoint.
   res.write('<a href="/">Home</a></br>');
-  res.write('<a href="./01/activities">Activities List</a></br>');
+  res.write('<a href="/teamActivities/01/activities">Activities List</a></br>');
   // These are navigation links for the stretch challenges
-  res.write('<a href="./01/stretch-1">Stretch 1 (CSS)</a></br>');
+  res.write('<a href="/teamActivities/01/stretch-1">Stretch 1 (CSS)</a></br>');
   res.write(
     '<a href="./01/stretch-2">Stretch 2 (Write Form input to text input)</a></br>'
   );
@@ -41,7 +41,7 @@ router.get('/activities', (req, res, next) => {
   }
   res.write('</ul>');
   // Form for "./add-activity".
-  res.write('<form action="./add-activity" method="POST">');
+  res.write('<form action="/add-activity" method="POST">');
   res.write('<input type="text" name="newActivity">');
   res.write('<button type="submit">Submit</button>');
   res.write('</form>');

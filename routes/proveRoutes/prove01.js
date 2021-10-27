@@ -19,6 +19,7 @@ router.get("/", (req, res, next) => {
   );
   res.write("</body>");
   res.write("</html>");
+  url = req.url;
   
   if (url === "/proveAssignments/01/users") {
     res.setHeader("Content-Type", "text/html");

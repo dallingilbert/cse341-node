@@ -40,7 +40,7 @@ router.post('/removeUser', (req, res, next) => {
 router.get('/', (req, res, next) => {
   res.render('pages/teamActivities/ta02', {
     title: 'Team Activity 02',
-    path: '/02', // For pug, EJS
+    path: '/teamActivities', // For pug, EJS
     activeTA03: true, // For HBS
     contentCSS: true, // For HBS
     user: userNames,

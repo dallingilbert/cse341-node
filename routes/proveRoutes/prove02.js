@@ -4,7 +4,7 @@ const router = express.Router();
 const products = [];
 
 router.get("/", (req, res, next) => {
-    res.render('pages/proveAssignments', {
+    res.render('pages/proveAssignments/prove02/prove02', {
         path: '/02',
         pageTitle: 'Shop',
         prods: products,
@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.post('/add-product', (req, res, next) => {
+router.post('/admin/add-product', (req, res, next) => {
     products.push({
         title: req.body.title,
         imageUrl: req.body.imageUrl,
@@ -22,16 +22,11 @@ router.post('/add-product', (req, res, next) => {
     res.redirect('/proveAssignments/02');
 });
 
-router.get("/add-product", (req, res, next) => {
+router.get("/admin/add-product", (req, res, next) => {
     res.render('pages/proveAssignments/prove02/add-product', {
-        path: '/add-product',
+        path: '/admin/add-product',
         pageTitle: 'Add Product',
     });
 });
-
-router.get('/admin/add-product', (req, res, next) => {
-
-});
-
 
 module.exports = router;
