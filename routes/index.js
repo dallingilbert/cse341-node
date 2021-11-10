@@ -1,10 +1,12 @@
 const routes = require("express").Router();
 const teamActivities = require("./teamRoutes");
 const proveActivities = require("./proveRoutes");
+const onlineActivities =  require("./onlineCourse");
 
 routes
   .use("/teamActivities", teamActivities)
   .use("/proveAssignments", proveActivities)
+  .use("/onlineCourse", onlineActivities)
 
   .get("/", (req, res, next) => {
     res.render("pages/index", {
